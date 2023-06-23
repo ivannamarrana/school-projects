@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <math.h>
+#include "mProy.h"
+
+int main(){
+    VectorProp vp;
+    char prop1[] = "( ( p > q ) > ( p ! q ) )";
+    char prop2[] = "( ( - ( p > q ) ) > p)";
+    char prop3[] = "( ( p ! ( q <> r ) ) > ( ( ( -p ) ! q ) <> ( p ! r ) ) )"; 
+    char prop4[] = "( ( - p ) : ( - q ) )";//nótese que cada proposición compuesta debe llevar su paréntesis, las negaciones se toman como proposiciones compuestas
+    char prop5[] = "( ( ( p <> r ) ! ( q <> s ) ) > ( ( p : q ) <> ( r : s ) ) )";
+    char prop6[] = "( p : q )";
+    char prop7[] = "( ( p > q ) ! ( - ( q > p ) ) )";
+    char prop8[] = "( ( p : ( q ! r ) ) <> ( ( p : q ) ! ( p : r ) ) )";
+    char prop9[] = "( ( - ( p > q ) ) : q )";
+    char prop10[] = "( ( ( p > q ) ! ( p > ( - q ) ) ) > (- p ) )";
+    char prop11[] = "( ( p > q ) > ( ( p ! r ) > ( q ! r ) ) )";
+    char prop12[] = "( p : ( ( - p ) ! q ) )";
+    char prop13[] = "( ( x : y ) <> ( ( - x ) > y ) )";
+    char prop14[] = "( ( ( ( ( c : e ) > ( - m ) ) ! ( r > m ) ) ! c ) > ( - r ) )";
+
+    char* prop = prop12;
+    leeYEvaluaProp(prop, &vp);
+    imprimeTablaDeVerdad(prop, &vp);
+    freeVectorProp(&vp);
+    printf("\n\n\n");
+
+    prop = prop13;
+    leeYEvaluaProp(prop, &vp);
+    imprimeTablaDeVerdad(prop, &vp);
+    freeVectorProp(&vp);
+    printf("\n\n\n");
+
+    prop = prop5;
+    leeYEvaluaProp(prop, &vp);
+    imprimeTablaDeVerdad(prop, &vp);
+    freeVectorProp(&vp);
+    printf("\n\n\n");
+
+    prop = prop8;
+    leeYEvaluaProp(prop, &vp);
+    imprimeTablaDeVerdad(prop, &vp);
+    freeVectorProp(&vp);
+    printf("\n\n\n");
+    return 0;
+}
